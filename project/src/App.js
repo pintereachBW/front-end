@@ -12,6 +12,11 @@ function App() {
     <nav className={'Nav'}>
       <ul className={'NavList'}>
       <li>
+      <NavLink exact to="/">
+      Articles
+      </NavLink>
+      </li>
+      <li>
       <NavLink to="/Login">
       Login
       </NavLink>
@@ -21,11 +26,7 @@ function App() {
       Sign-Up
       </NavLink>
       </li>
-      <li>
-      <NavLink exact to="/">
-      Landing
-      </NavLink>
-      </li>
+      
       </ul>
     </nav>
     <Route 
