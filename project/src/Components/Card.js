@@ -1,21 +1,39 @@
 import React, { Component } from 'react'
 import '../Card.css'
 import styled from 'styled-components'
+import axios from 'axios'
 
 export default class Card extends Component {
 
     state = {
-        CardInfo:{
+        articles:{
+            article_id:Number,
             title:'',
-            url:'',
+            link:'',
             description:'',
         }
     }
 
+
+    handleSubmit = e => {
+        const token = localStorage.getItem('token')
+        e.preventDefault();
+        axios.post('https://unit4buildwk.herokuapp.com/api/articles/:user_id/add', this.state.articles, {
+            headers: {
+                authorization: token
+            }})
+        .then(res=>{
+           console.log(res)
+        })
+        .catch(err=>{
+            console.log(err);
+        },[])
+    }
+
     handleChange = e => {
         this.setState({
-            CardInfo:{
-                ...this.state.CardInfo,
+            articles:{
+                ...this.state.articles,
                 [e.target.name]: e.target.value
             }
         });
@@ -24,28 +42,30 @@ export default class Card extends Component {
     render(){
     return(
         <div className='card-container'>
-            <form>
+            <form onSubmit={this.handleSubmit}>
                 <Input 
                     placeholder='Title'
                     type="text"
                     name="title"
-                    value={this.state.CardInfo.title}
+                    value={this.state.articles.title}
                     onChange={this.handleChange}/>
                 <Input 
                     placeholder='Article Link'
                     type="url"
-                    name="url"
-                    value={this.state.CardInfo.url}
+                    name="link"
+                    value={this.state.articles.link}
                     onChange={this.handleChange}/>
                 <TextArea 
                     placeholder='Give a description of your article!'
                     type="text"
                     name="description"
-                    value={this.state.CardInfo.description}
+                    value={this.state.articles.description}
                     onChange={this.handleChange}/>
+                    <Button>Save</Button>
+                    <Button>Clear</Button>
             </form>
-            <Button>Save</Button>
-            <Button>Clear</Button>
+            
+            
         </div>
     )
 }

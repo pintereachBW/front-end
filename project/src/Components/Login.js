@@ -6,8 +6,9 @@ export default class Login extends Component {
 
     state = {
         userInfo:{
-            username:'garin',
-            password:'password',
+            user_id:Number,
+            username:'',
+            password:'',
         }
     }
 

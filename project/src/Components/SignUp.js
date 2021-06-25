@@ -6,8 +6,9 @@ export default class SignUp extends Component {
 
     state = {
         userSignUpInfo:{
-            username:'blah',
-            password:'password',
+            user_id:Number,
+            username:'',
+            password:'',
         }
     }
 
