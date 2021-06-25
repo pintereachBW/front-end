@@ -5,7 +5,8 @@ import axios from 'axios'
 
 export default class Landing extends Component {
 
-    componentDidMount(e){
+    /*componentDidMount(e){
+        
         const token = localStorage.getItem('token')
         axios.get('https://unit4buildwk.herokuapp.com/api/articles/:user_id', {
             headers: {
@@ -18,9 +19,10 @@ export default class Landing extends Component {
         })
         .catch(err=>{
             console.log(err);
-        },[])
-    }
+        },[])also cant get this request to work either...
+    }*/
 
+    
     render() {
         return(
             <div>

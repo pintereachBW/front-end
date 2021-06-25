@@ -18,7 +18,7 @@ export default class Card extends Component {
     handleSubmit = e => {
         const token = localStorage.getItem('token')
         e.preventDefault();
-        axios.post('https://unit4buildwk.herokuapp.com/api/articles/:user_id/add', this.state.articles, {
+        /*axios.post('https://unit4buildwk.herokuapp.com/api/articles/:user_id/add', this.state.articles, {
             headers: {
                 authorization: token
             }})
@@ -27,7 +27,7 @@ export default class Card extends Component {
         })
         .catch(err=>{
             console.log(err);
-        },[])
+        },[])*/ //cant get this to work maybe its on backend side?
     }
 
     handleChange = e => {
