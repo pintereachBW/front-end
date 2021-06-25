@@ -22,6 +22,7 @@ export default class Landing extends Component {
         },[])also cant get this request to work either...
     }*/
 
+    
     render() {
         return(
             <div>
